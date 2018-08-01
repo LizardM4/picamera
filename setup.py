@@ -107,11 +107,11 @@ class CustomInstallCommand(install):
                             label, value = line.strip().split(':', 1)
                             value = value.strip()
                             if value not in ('BCM2708', 'BCM2709', 'BCM2835', 'BCM2836'):
-                                raise ValueError('This system does not appear to be a Raspberry Pi')
+                                print('This system does not appear to be a Raspberry Pi')
                     if not found:
-                        raise ValueError('Unable to determine if this system is a Raspberry Pi')
+                        print('Unable to determine if this system is a Raspberry Pi')
             except IOError:
-                raise ValueError('Unable to open /proc/cpuinfo')
+                print('Unable to open /proc/cpuinfo')
         install.run(self)
 
 
